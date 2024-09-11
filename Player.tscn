@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsxgef32h74yu"]
+
+[ext_resource type="Texture2D" uid="uid://bbht68elxgjjr" path="res://icon.svg" id="1_lp2vs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw721"]
+size = Vector2(125, 127)
+
+[node name="Player" type="Player"]
+texture = ExtResource("1_lp2vs")
+
+[node name="HealthComponent" type="HealthComponent" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_xw721")
+
+[node name="Bullet_spawner" type="Marker2D" parent="."]
+position = Vector2(80, 0)
