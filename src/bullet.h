@@ -12,6 +12,7 @@ class Bullet : public RigidBody2D{
     GDCLASS(Bullet, RigidBody2D)
 
 private:
+    double time_elapsed;
     double bullet_speed;
     Vector2 impulse;
     Marker2D * spawner;
@@ -24,7 +25,7 @@ public:
     Bullet();
 
     void _ready() override;
-    void _physics_process(const double delta) override;
+    void _process(const double delta) override;
 
     void set_bullet_speed(const double p_bullet_speed);
     double get_bullet_speed() const;

@@ -1,5 +1,6 @@
 #include "register_types.h"
 
+#include "anchor.h"
 #include "bullet.h"
 #include "health_component.h"
 #include "main.h"
@@ -19,6 +20,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
     GDREGISTER_CLASS(Health);
     GDREGISTER_CLASS(Main);
     GDREGISTER_CLASS(Player);
+    GDREGISTER_CLASS(Anchor);
 	
 }
 

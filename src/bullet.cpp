@@ -14,26 +14,32 @@ void Bullet::_bind_methods()
 
 Bullet::Bullet()
 {
+    set_gravity_scale(0);
     bullet_speed = 20;
+    time_elapsed = 0;
 }
 
 void Bullet::_ready()
 {
-    if((get_parent()->get_name().nocasecmp_to("Bullet_spawner")) == 0)
+    /*
+    if(get_parent()->get_parent()->has_node("Bullet_spawner"))
     {
         spawner = Object::cast_to<Marker2D>(get_parent());
-        set_global_position(spawner->get_position());
+        set_global_position(spawner->get_global_position());
         reparent(get_node<Main>("/root/Main"));
-        position = get_position();
     }
-
+    */
 }
 
-void Bullet::_physics_process(const double delta)
+void Bullet::_process(const double delta)
 {
-    impulse = Vector2(bullet_speed, 0);
-    apply_impulse(impulse, position);
-
+    /*
+    time_elapsed += delta;
+    if(time_elapsed >= 4)
+    {
+        queue_free();
+    }
+    */
 }
 
 void Bullet::set_bullet_speed(const double p_bullet_speed)
