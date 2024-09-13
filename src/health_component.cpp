@@ -7,6 +7,8 @@ void Health::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("set_health", "p_health"), &Health::set_health);
     ClassDB::bind_method(D_METHOD("get_health"), &Health::get_health);
+    ClassDB::bind_method(D_METHOD("takes_damage", "area"), &Health::takes_damage);
+
 
     ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "max health"), "set_health", "get_health");
 }
@@ -14,28 +16,27 @@ void Health::_bind_methods()
 Health::Health()
 {
     max_health = 10;
-    curr_health = max_health;
+    
 }
 
 void Health::_ready()
 {
     if(get_parent()->has_node("Hurtbox"))
     {
-        hurtbox = get_parent()->get_node<Area2D>("Hurtbox");
+        hurtbox = get_node<Area2D>("../Hurtbox");
         hurtbox->connect("area_entered", Callable(this, "takes_damage"));
     }
+    curr_health = get_health();
 }
 
 //custom methods
-void Health::takes_damage()
+void Health::takes_damage(Area2D * area)
 {
-    
+    curr_health -= 2;
     if(curr_health <= 0)
     {
-        UtilityFunctions::print("You died lol\n");
-        curr_health = max_health;
+        get_parent()->queue_free();
     }
-    curr_health -= 2;
     UtilityFunctions::print("Health at ", curr_health);
 }
 

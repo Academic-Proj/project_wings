@@ -30,7 +30,7 @@ public:
     void set_health(const double p_health);
     double get_health() const;
 //Custom methods
-    void takes_damage();
+    void takes_damage(Area2D * area);
 
 };
 

@@ -5,6 +5,7 @@
 #include "health_component.h"
 #include "main.h"
 #include "player.h"
+#include "enemy.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -21,7 +22,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
     GDREGISTER_CLASS(Main);
     GDREGISTER_CLASS(Player);
     GDREGISTER_CLASS(Anchor);
-	
+	GDREGISTER_CLASS(Enemy)
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
