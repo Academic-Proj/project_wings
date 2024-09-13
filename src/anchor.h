@@ -8,6 +8,7 @@
 #include <godot_cpp/classes/rigid_body2d.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/marker2d.hpp>
+#include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/packed_scene.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 #include <godot_cpp/variant/transform2d.hpp>

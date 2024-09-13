@@ -21,25 +21,29 @@ Bullet::Bullet()
 
 void Bullet::_ready()
 {
-    /*
+   
     if(get_parent()->get_parent()->has_node("Bullet_spawner"))
     {
         spawner = Object::cast_to<Marker2D>(get_parent());
         set_global_position(spawner->get_global_position());
         reparent(get_node<Main>("/root/Main"));
     }
-    */
+    
 }
 
-void Bullet::_process(const double delta)
+void Bullet::_physics_process(const double delta)
 {
-    /*
+    if(Engine::get_singleton()->is_editor_hint())
+    {
+        return;
+    }
     time_elapsed += delta;
     if(time_elapsed >= 4)
     {
         queue_free();
     }
-    */
+
+    
 }
 
 void Bullet::set_bullet_speed(const double p_bullet_speed)

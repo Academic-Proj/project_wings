@@ -28,6 +28,10 @@ void Anchor::_process(const double delta)
 {
     look_at(get_global_mouse_position());
     rotation = get_rotation();
+    if(Engine::get_singleton()->is_editor_hint())
+    {
+        return;
+    }
     if(input->is_action_just_pressed("Shoot"))
     {
         shoot();
@@ -39,7 +43,7 @@ void Anchor::shoot()
 {
     bullet = Object::cast_to<Bullet>(bulletscn->instantiate());
     impulse = Vector2(bullet->get_bullet_speed(), 0);
-    bullet->apply_impulse(impulse.rotated(rotation), get_position());
+    bullet->apply_impulse(impulse.rotated(rotation), this->get_position());
     if(spawner!= NULL)
     {
         spawner->add_child(bullet);

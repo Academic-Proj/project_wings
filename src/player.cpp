@@ -23,6 +23,10 @@ Player::Player()
 
 void Player::_ready()
 {
+    if(Engine::get_singleton()->is_editor_hint())
+    {
+        set_process_mode(Node::ProcessMode::PROCESS_MODE_PAUSABLE);
+    }
     //prepare input maps
     input = Input::get_singleton();
     InputMap * inputmap = InputMap::get_singleton();
@@ -33,7 +37,7 @@ void Player::_ready()
 void Player::_physics_process(double delta)
 {
     //player movement with input
-
+    
     movement();
     move_and_slide();
     

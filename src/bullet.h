@@ -2,6 +2,7 @@
 #define BULLET_H
 
 #include <godot_cpp/classes/rigid_body2d.hpp>
+#include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/marker2d.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 
@@ -25,7 +26,7 @@ public:
     Bullet();
 
     void _ready() override;
-    void _process(const double delta) override;
+    void _physics_process(const double delta) override;
 
     void set_bullet_speed(const double p_bullet_speed);
     double get_bullet_speed() const;
